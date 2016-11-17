@@ -1,0 +1,225 @@
+<form ng-submit="newCampaign(Campaign)" name="CampaignForm" class="bz-panel">
+  <h3 class="bz-panel-title">{{ 'CAMPAIGN_MANAGMENT' | translate }}</h3>
+  <p class="bz-panel-text">{{ 'CAMPAIGN_TEXT_PANEL' | translate }}</p>
+  <div class="form-content row">
+    <div class="col-xs-12 col-md-8 form-sections  camp-input">
+      <div class="row">
+        <label class="col-xs-6 col-sm-4 form-sections-label" for="campaign-name">{{ "CAMPAIGN_NAME" | translate }} </label>
+        <input id="campaign-name" class=" col-xs-12 col-md-8 input-lg form-sections-inputs " name="name"
+               ng-model="Campaign.name"
+               type="text" required>
+      </div>
+      </div>
+      <div class=" col-xs-6 col-md-4 form-sections camp-select">
+        <div class="row">
+      <label class="col-xs-6 col-sm-4 form-sections-label" for="select-campaign">{{ 'STATUS' | translate }} </label>
+      <select name="status" class="col-xs-12 col-md-8 input-lg form-sections-inputs" id="select-campaign"
+              ng-model="Campaign.status" required>
+        <option value="">{{ 'CHOOSE' | translate }}</option>
+        <option
+          ng-value="'INA'">{{ "DRAFT" | translate }}</option>
+        <option   ng-value="'ACT'">{{ "PUBLISHED" | translate }}</option>
+      </select>
+      </div>
+    </div>
+  </div>
+
+  <button ng-disabled="!(CampaignForm.name.$valid && CampaignForm.status.$valid)" class="bt bt-primary">{{
+    'CREATE_CAMPAIGN' | translate }}</button>
+</form>
+<br>
+
+<h4 class="subtitle">ÚLTIMAS CAMPAÑAS CREADAS</h4>
+<br>
+<br>
+<br>
+<div class="filters">
+  <div class="filter-link center">
+    <a  class="center" ng-click="allSearch()"  href="">
+      {{ "ALL" | translate }}({{ keeper }})
+    </a>
+    <span class="divider"></span>
+    <a ng-click="publicSearch()"  href="">
+      {{ "PUBLISHED" | translate }}({{ camppublic }})
+    </a>
+    <span class="divider"></span>
+    <a  ng-click="draftSearch()"  href="">{{ "DRAFT" | translate }}({{ campdraft
+      }})
+    </a>
+  </div>
+
+  <div class="filter-date">
+    <div class="input-group date-field">
+      <div  ng-click="open1()">
+        <input type="text" placeholder="Desde"  uib-datepicker-popup="yyyy.MMM.dd" datepicker-options="options" is-open="popup1.opened" datepicker-options="dateOptions" ng-model="Query.from"
+               class="form-control date-search "/>
+        <i class="icon-calendario date-icon"></i>
+        <i class="icon-abajo date-arrow" ></i>
+      </div>
+    </div>
+    <div class="input-group date-field">
+      <div  ng-click="open2()">
+        <input type="text" placeholder="Hasta" uib-datepicker-popup="yyyy.MMM.dd" is-open="popup2.opened" datepicker-options="dateOptions"                 ng-model="Query.to" class="form-control date-search"/>
+        <i class="icon-calendario date-icon"></i>
+        <i class="icon-abajo date-arrow" ></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="filter-status center">
+    <select name="status-input" class="st-input col-xs-12 col-md-8 input-sm form-sections-inputs select-search"
+            id="select-search"
+              ng-model="Query.status">
+      <option value="">{{ 'STATUS' | translate }}</option>
+      <option
+        ng-value="'INA'">{{ "DRAFT" | translate }}</option>
+      <option   ng-value="'ACT'">{{ "PUBLISHED" | translate }}</option>
+      </select>
+  </div>
+
+
+
+
+  <div class="filter-search center">
+
+    <i class="icon-lupa search-icon"></i>
+    <input  placeholder="{{ 'CAMPAIGN' | translate }}" ng-model="Query.name" class="input-sm input-search form-control"
+            type="search"/>
+     <button class="bt bt-secondary button-search" ng-click="setQuery(Query)">{{ 'SEARCH' | translate }}</button>
+  </div>
+</div>
+
+
+<br>
+<br>
+<br>
+<br>
+
+<table st-safe-src="campaigns" st-table="displays" class="table table-striped">
+  <thead>
+  <tr class="head-table">
+    <th st-sort="name">{{ "CAMPAIGN_NAME" | translate }}</th>
+    <th class="field-status center" st-sort="status">
+
+      <div class="divider">{{ "STATUS" | translate }}</div>
+      </th>
+
+
+    <th class="center field-date" st-sort="created_at" >
+      <div class="divider">
+        {{ "CREATION_DATE" | translate }}
+      </div>
+    </th>
+  </tr>
+  </thead>
+
+
+
+  <tbody>
+  <tr st-select-mode="multiple" ng-repeat="item in displays"  class="table-content">
+    <td>{{item.name}}</td>
+    <td class="center" >
+      <span class="default-info-table">
+        <i ng-show="item.status == 'ACT'" class="icon-activo bz-icon-sm  icon-color-success"></i>
+        <i ng-show="item.status == 'INA'" class="icon-editar bz-icon-sm  icon-color-draft"></i>
+      </span>
+      <span class="option-table" ng-click="open(item)"><i class="bz-icon-s icon-editar"></i>{{ 'EDIT' | translate
+        }}</span>
+    </td>
+    <td class="center">
+      <div class="default-info-table">
+        {{item.created_at | date:'MM/dd/yyyy'}}
+      </div>
+      <div class="divider option-table" ng-click="delete(item)">
+        <i class="bz-icon-s icon-inactivo"></i> {{ 'DELETE' | translate }}
+      </div>
+    </td>
+  </tr>
+  </tbody>
+  <tfoot>
+<tr>
+  <td colspan="6">
+    <div class="pagination">
+      <ul>
+        <li class="page" ng-class="{disabled: currentPage == 0}">
+          <a href ng-click="prevPage()">«</a>
+        </li>
+
+        <li class="page" ng-repeat="n in range(displayedPages, currentPage, currentPage + displayedPages) "
+            ng-class="{active: n == currentPage}"
+            ng-click="setPage(n+1)">
+          <a href ng-bind="n + 1">1</a>
+        </li>
+
+        <li class="page" ng-class="{disabled: (currentPage) == displayedPages - 1}">
+          <a href ng-click="nextPage()">»</a>
+        </li>
+      </ul>
+    </div>
+  </td>
+</tr>
+  </tfoot>
+</table>
+
+
+
+
+
+
+<script type="text/ng-template" id="modal.html">
+  <div class="modal-header bz-modal-header">
+    <h3 class="cnt-title-md">{{ "EDIT_CAMPAIGN" | translate }}</h3>
+  </div>
+
+  <div class="modal-body bz-modal-body container-data">
+   <br>
+    <label class="text-m margin-md text-blue" for="campaign-name">{{ "CAMPAIGN_NAME" | translate }} </label>
+    <div class="input-container">
+      <div class='left'></div>
+      <input name="campaign-name" class="input text-l" ng-model="editable.name" type="text">
+      <i class="bz-icon icon-editar"></i>
+      <div class='right'></div>
+    </div>
+    <br><br>
+    <label class="text-m margin-md text-blue" for="campaign-name">{{ "STATUS" | translate }} </label>
+    <div class="input-container select">
+      <div class='left'></div>
+    <select name="" class="input">
+      <option ng-repeat="opt in selection" ng-selected="editable.status == opt.id"
+              ng-value="opt.id">{{ opt.label | translate }}</option>
+     </select>
+      <i class="bz-icon icon-abajo"></i>
+      <div class='right'></div>
+
+    </div>
+  </div>
+  <br>
+  <div class="modal-footer bz-modal-footer">
+    <button class="bt bt-primary" type="button" ng-click="updateCamp(editable)">{{ 'EDIT' | translate }}</button>
+    <button class="bt bt-secondary" type="button" ng-click="cancel()">{{ 'CANCEL' | translate }}</button>
+  </div>
+</script>
+
+
+
+
+
+
+
+
+
+
+<script type="text/ng-template" id="deletemodal.html">
+  <div class="modal-header bz-modal-header">
+    <h3 class="cnt-title-md">{{ "DELETE_CAMPAIGN" | translate }}</h3>
+  </div>
+  <div class="modal-body bz-modal-body container-data">
+    <br><br>
+    <p class="margin-md cnt-name-md text-blue-d">{{ camp.name }}<p>
+    <p class="margin-md text-orange"><i class="icon-duracionvisitas contact-icon text-orange"> </i><span> {{ camp.status }}</span></p>
+  </div>
+  <div class="modal-footer bz-modal-footer">
+    <button class="bt bt-primary" type="button" ng-click="DeleteCamp(camp.id)">{{ 'DELETE' | translate }}</button>
+    <button class="bt bt-secondary" type="button" ng-click="cancel()">{{ 'Cancel' | translate }}</button>
+  </div>
+</script>

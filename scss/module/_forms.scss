@@ -1,0 +1,34 @@
+.form-container {
+  background-color: $components-bg;
+
+  input[type="text"],
+  input[type="password"],
+  input[type="checkbox"],
+  textarea{
+    background-color: $white;
+    border: 1px solid $border-lgray;
+    border-radius: 4px;
+    padding: 4px 8px;
+    &:disabled {
+      background-color: $disabled;
+      border: 2px solid $border-dgray;
+    }
+    &:focus {
+      border: 2px solid $border-lgray !important;
+      outline: -webkit-focus-ring-color auto 0px;
+    }
+  }
+  input[type="password"] {
+    color: $normal-blue;
+  }
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin-top: 10px;
+    background-color: $white;
+  }
+
+}
+
+

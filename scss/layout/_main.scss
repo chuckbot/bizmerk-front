@@ -1,0 +1,39 @@
+ .bz-content,
+.fade-in-up,
+.auth-container, .bz-main-app,
+.bz-container{
+  height: 100%;
+  min-height: 100%;
+}
+.content-low{
+  @include breakpoint(mobileonly) {
+    transition-duration: .3s;
+    display: none;
+  }
+  @include breakpoint(phablet) {
+    display: none;
+  }
+  @include breakpoint(tablet) {
+    display: block;
+    background-color: white;
+    margin-left: 75px;
+  }
+}
+
+.bz-app {
+  @include j-center(2500px);
+  min-height: 100%;
+  .bz-container {
+    background-color: $dark-blue;
+    @include j-column(1/1);
+    padding: 0;
+    min-width: 100% !important;
+    margin-top: 70px;
+  .bz-content {
+    margin-left: 70px;
+    min-height: 895px;
+    padding: 30px 20px 10px;
+  }
+  }
+}
+

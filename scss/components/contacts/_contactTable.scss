@@ -1,0 +1,32 @@
+.container-table {
+	@include j-column (1/1);
+	overflow: auto;
+}
+.field-checkbox {
+	min-width: 50px;
+	width: 50px;
+}
+.field-page-views {
+	min-width: 140px;
+	width: 140px;
+}
+.field-email {
+	min-width: 250px;
+	width: 250px;
+}
+ 
+.field-contact-name { 
+	min-width: 350px;
+}
+.cnt-title-md {
+	text-align: center;
+}
+.margin-md {
+	margin-left: 50px;
+	padding-left: 10px;
+	font-size: 18px;
+}
+.cnt-name-md {
+	font-size: 25px;
+	font-weight: bold;
+}

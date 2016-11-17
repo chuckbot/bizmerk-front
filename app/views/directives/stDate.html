@@ -1,0 +1,20 @@
+<div class="input-group date-field">
+  <div  ng-click="openAfter($event)">
+  <input type="text" placeholder="Desde" class="form-control estoesdate " uib-datepicker-popup="yyyy.MMM.dd"
+         ng-model="after"
+         is-open="isAfterOpen"
+         close-text="Close" />
+  <i class="icon-calendario date-icon"></i>
+  <i class="icon-abajo date-arrow" ></i>
+  </div>
+</div>
+<div class="input-group date-field">
+  <div ng-click="openBefore($event)">
+  <input type="text" placeholder="Hasta"  class="form-control estoesdate" uib-datepicker-popup="yyyy.MMM.dd"
+         ng-model="before"
+         is-open="isBeforeOpen"
+         close-text="Close"/>
+  <i class="icon-calendario date-icon"></i>
+  <i class="icon-abajo date-arrow" ></i>
+  </div>
+</div>

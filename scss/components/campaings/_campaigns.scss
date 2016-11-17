@@ -1,0 +1,86 @@
+.camp-select {
+  float: right !important;
+  width: 26% !important;
+  .form-sections-label {
+    @include breakpoint(mobileonly) {
+      float: none !important;
+      width: 100% !important;
+    }
+    @include breakpoint(phablet) {
+      margin: 15px 0 0;
+      width:100%;
+    }
+    @include breakpoint(tablet) {
+      margin: 15px 0 0;
+      width: 30%;
+    }
+     @include breakpoint(laptop) {
+      margin: 15px 0 0;
+      width:29%;
+    }
+  }
+  .form-sections-inputs {
+    margin-top: 5px;
+  }
+  @include breakpoint(mobileonly) {
+    float: none !important;
+    width: 100% !important;
+  }
+  @include breakpoint(phablet) {
+    float: none !important;
+    width: 100% !important;
+  }
+  @include breakpoint(tablet) {
+    float: right !important;
+    width: 100% !important;
+  }
+  @include breakpoint(laptop) {
+    float: right !important;
+    width: 30% !important;
+  }
+}
+.camp-input {
+  .form-sections-label {
+    @include breakpoint(mobileonly) {
+      float: none !important;
+      width: 100% !important;
+    }
+    @include breakpoint(phablet) {
+      margin: 15px 0 0;
+      width: 100%;
+    }
+    @include breakpoint(tablet) {
+      margin: 15px 0 0;
+      width: 30%;
+    }
+    @include breakpoint(laptop) {
+      margin: 15px 0 0;
+      width:29%;
+    }
+  }
+  float: left !important;
+  width: 73%;
+
+  .form-sections-inputs {
+  }
+  @include breakpoint(mobileonly) {
+    float: none !important;
+    width: 100% !important;
+  }
+  @include breakpoint(phablet) {
+    float: none !important;
+    width: 100% !important;
+  }
+  @include breakpoint(tablet) {
+    float: left !important;
+    width: 100% !important;
+  }
+  @include breakpoint(laptop) {
+    float: left !important;
+    width: 69% !important;
+  }
+  @include breakpoint(desktop) {
+    float: left !important;
+    width: 70% !important;
+  }
+}

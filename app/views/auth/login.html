@@ -1,0 +1,51 @@
+<div class="login">
+  <div class="message-container">
+  <div class="help-block alert-danger" ng-model="showMessage" ng-messages="LoginForm.email.$error" ng-if="LoginForm.email.$touched">
+    <p ng-message="required">{{ 'EMAIL_VALIDATION_REQUIRED' | translate }}</p>
+    <p ng-message="email">{{ 'EMAIL_VALIDATION_CORRECT' | translate }}</p>
+  </div>
+  <div class="help-block alert-danger" ng-messages="LoginForm.password.$error" ng-if="LoginForm.password.$touched">
+    <p ng-message="required">{{ 'PASSWORD_VALIDATION_REQUIRED' | translate }}</p>
+  </div>
+    <div class="help-block alert-danger" ng-show="loginError">
+      <p>{{ 'invalid_credentials' | translate }}</p>
+    </div>
+  </div>
+  <form class="login-form" name="LoginForm" ng-submit="LoginUser(User)">
+    <div class="login-form--logo">
+      <img src="../images/login/logo_bizmerk-01.png" alt="">
+    </div>
+    <div class="login-form--inputs">
+      <div class="input-container">
+        <span class="icon-input i-email"></span>
+        <input class="login-form--inputs__blue" autocomplete="off" type="email" name="email" ng-model="User.email" placeholder="Correo Electronico" required />
+      </div>
+    </div>
+    <div class="login-form--inputs">
+      <div class="input-container">
+    <input class="login-form--inputs__blue" type="password" ng-model="User.password" name="password" placeholder="{{ 'PASSWORD' | translate }}" required />
+      <span class="icon-input i-password"></span>
+    </div>
+      </div>
+    <div class="login-form--submit">
+      <button ng-disabled="!(LoginForm.email.$valid && LoginForm.password.$valid)" class="bt bt-primary"> {{
+        'LOGIN' | translate }} </button>
+    </div>
+    <div class="login-form--forgot">
+      <a ui-sref="auth.signup" class="link bg-light forgot-text forgot-password">{{ 'HAVE AN ACCOUNT' | translate }}</a>
+    </div>
+    <div class="login-form--forgot">
+      <a ui-sref="auth.recovery" class="link bg-light forgot-text forgot-password">{{ 'FORGOT_PASSWORD' | translate }}</a>
+    </div>
+  </form>
+  <div class="login-footer ">
+    <div class="login-footer--content">
+      <a href="auth.recovery"
+         class="login-footer--link"><img src="../images/login/logo_bizmerk_footer-01.png" alt=""></a>
+      <span class="divider"></span>
+      <a href="" class="login-footer--link">{{ 'FOOTER_CONTACT' | translate }}</a>
+      <span class="divider"></span>
+      <a href="" class="login-footer--link">{{ 'FOOTER_HELP' | translate }}</a>
+    </div>
+  </div>
+</div>

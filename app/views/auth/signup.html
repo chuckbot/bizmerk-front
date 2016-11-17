@@ -1,0 +1,119 @@
+<div class="signup">
+  <div class="message-container">
+  <div class="help-block alert-danger" ng-messages="SignUpForm.firstname.$error"
+       ng-if="SignUpForm.firstname.$touched">
+    <p ng-message="required">{{ 'REQUIRED_NAME' | translate}}</p>
+  </div>
+  <div class="help-block alert-danger" ng-messages="SignUpForm.lastname.$error" ng-if="SignUpForm.lastname.$touched">
+    <p ng-message="required">{{ 'REQUIRED_LASTNAME' | translate}}</p>
+  </div>
+  <div class="help-block alert-danger" ng-messages="SignUpForm.email.$error" ng-if="SignUpForm.email.$touched">
+    <p ng-message="required">{{ 'REQUIRED_EMAIL' | translate}}</p>
+    <p ng-message="email">{{ 'VALID_EMAIL' | translate}}</p>
+  </div>
+  <div class="help-block alert-danger" ng-messages="SignUpForm.username.$error" ng-if="SignUpForm.username.$touched">
+    <p ng-message="required">{{ 'REQUIRED_USERNAME' | translate}}</p>
+  </div>
+  <div class="help-block alert-danger" ng-messages="SignUpForm.password.$error" ng-if="SignUpForm.password.$touched">
+    <p ng-message="required">{{ 'REQUIRED_PASSWORD' | translate}}</p>
+  </div>
+  <div class="help-block alert-danger" ng-messages="SignUpForm.confirmation.$error" ng-if="SignUpForm.confirmation.$touched">
+    <p ng-message="required">{{ 'REQUIRED_CONFIRMATION' | translate}}</p>
+  </div>
+  <div class="help-block alert-danger" ng-messages="SignUpForm.company.$error" ng-if="SignUpForm.company.$touched">
+    <p ng-message="required">{{ 'REQUIRED_COMPANY' | translate}}</p>
+  </div>
+    <div class="help-block alert-danger" ng-show="emailError">
+      <p>{{ 'EMAIL_TAKEN' | translate }}</p>
+    </div>
+    <div class="help-block alert-danger" ng-show="usernameError">
+      <p>{{ 'USERNAME_TAKEN' | translate }}</p>
+    </div>
+    <div class="help-block alert-danger" ng-show="fieldsRequired">
+      <p>{{ 'USERNAME_TAKEN' | translate }}</p>
+    </div>
+  </div>
+  <form  ng-submit="signUp(User)" class="signup-form" name="SignUpForm">
+    <div class="signup-form--logo">
+      <img src="../images/login/logo_bizmerk-01.png" alt="">
+    </div>
+    <div class="signup-form--info">
+      <p class="signup--info">{{ 'SIGN_UP_FILL_INPUTS_REQUIRED' | translate }}</p>
+    </div>
+    <div class="signup-form--inputs">
+    <div class="signup-form--inputs">
+      <div class="twice">
+        <div class="input-container">
+      <input class="signup-form--inputs__blue" type="text" name="firstname"
+             ng-model="User.firstname"
+             placeholder="{{ 'FIRST_NAME' | translate }}" id="LettersOnly" only-letters-input
+             title="{{ 'REQUIRED_NAME' | translate}}" required>
+          <span class="icon-input i-user"></span>
+          </div>
+        <div class="input-container">
+      <input class="signup-form--inputs__blue" type="text" only-letters-input
+             name="lastname"
+             ng-model="User.lastname"
+             placeholder="{{ 'LAST_NAME' | translate }}" required>
+          <span class="icon-input i-user"></span>
+        </div>
+      </div>
+    </div>
+    <div class="signup-form--inputs">
+    <div class="twice">
+      <div class="input-container">
+      <input class="signup-form--inputs__blue" type="email" name="email" ng-model="User.email"
+             placeholder="{{ 'EMAIL' | translate }}" required>
+        <span class="icon-input i-email"></span>
+        </div>
+      <div class="input-container">
+      <input class="signup-form--inputs__blue" type="text" name="username" ng-model="User.username"
+             placeholder="{{ 'USER_NAME' | translate }}"  required>
+        <span class="icon-input icon-avatar"></span>
+        </div>
+    </div>
+    <div class="twice">
+      <div class="input-container">
+      <input class="signup-form--inputs__blue" type="password" name="password" ng-model="User.password"
+             placeholder="{{ 'PASSWORD' | translate }}" required>
+        <span class="icon-input i-password"></span>
+      </div>
+      <div class="input-container confirmation">
+        <input class="signup-form--inputs__blue" type="password" name="confirmation" ng-model="User.confirmation"
+               placeholder="{{ 'VERIFY' | translate }}" ng-keyup="verify(User)" required>
+        <span class="icon-input i-password"></span>
+        <i ng-class="passwordConf"></i>
+      </div>
+    </div>
+      <div class="twice">
+        <div class="input-container">
+          <input class="signup-form--inputs__blue" type="text" name="company" ng-model="User.company"
+                 placeholder="{{ 'COMPANY_NAME' | translate }}">
+          <span class="icon-input i-company"></span>
+        </div>
+        <div class="input-container">
+          <input ng-model="phone" id="phone" maxlength="18" class="signup-form--inputs__blue" type="text" placeholder="{{'PHONE' | translate}}">
+          <span class="icon-input i-phone"></span>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="signup-form--submit">
+      <button  class="bt bt-primary"
+               ng-disabled="!(SignUpForm.firstname.$valid && SignUpForm.lastname.$valid && SignUpForm.email.$valid &&
+    SignUpForm.username.$valid && SignUpForm.password.$valid && SignUpForm.confirmation.$valid && SignUpForm.company.$valid)" name="submit" > {{ 'SIGN_UP' | translate }} </button>
+    </div>
+    <div class="signup-form--info">
+      <a ui-sref="auth.login" class="signup--info">{{ 'BACK_LOGIN' | translate }}</a>
+    </div>
+  </form>
+  <div class="signup-footer ">
+    <div class="signup-footer--content">
+      <a href="" class="signup-footer--link"><img src="../images/login/logo_bizmerk_footer-02.png" alt=""></a>
+      <span class="divider"></span>
+      <a href="" class="signup-footer--link">Contacto</a>
+      <span class="divider"></span>
+      <a href="" class="signup-footer--link">Ayuda</a>
+    </div>
+  </div>
+</div>

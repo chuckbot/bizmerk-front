@@ -1,0 +1,11 @@
+<div class="bz-app">
+  <div ng-include="'views/components/app/header.html'" class="navbar navbar-fixed-top" ng-controller="HeaderbarCtrl"> </div>
+  <div class="clearfix"> </div>
+  <div class="container bz-container">
+      <div ng-include="'views/components/app/sidemenu.html'" class="side-menu-wrapper" ng-controller="SidemenuCtrl"> </div>
+      <div class="bz-content {{ classContent }}" id="bz-main">
+        <toaster-container toaster-options="{'time-out':'3000','close-button':true}"></toaster-container>
+        <div ui-view class="fade-in-up"></div>
+      </div>
+    </div>
+</div>

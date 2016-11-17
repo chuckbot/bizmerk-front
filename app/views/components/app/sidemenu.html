@@ -1,0 +1,17 @@
+<div class="btn-sidebar" id="side-menu" ng-click="shMenu()"> <i class="bz-icon-m  icon-paginasvisitadas"></i> </div>
+<div class="bz-sidemenu navbar-collapse collapse {{ classSidemenu }}">
+  <ul class="bz-sidemenu-list" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" ng-class="{'page-sidebar-menu-closed': settings.layout.pageSidebarClosed}">
+    <li ng-repeat="module in modules" class="bz-list-item nav-item ">
+      <a ui-sref="{{ module.link }}" ui-sref-active="active" class="nav-link nav-toggle bz-item-link">
+        <i class="bz-icon {{ module.icon }}"></i>
+        <p class="bz-title  {{ classTitle }}">{{ module.title | translate }}</p>
+      </a>
+    </li>
+    <li id="btn-min-sm" class="bz-list-item nav-item" ng-click="minSidemenu()">
+      <a class="nav-link nav-toggle bz-item-link">
+        <i class="bz-icon arrow-icon icon-derecha">
+      </i>
+      </a>
+    </li>
+  </ul>
+</div>

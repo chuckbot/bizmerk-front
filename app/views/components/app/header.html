@@ -1,0 +1,64 @@
+<div class="bz-header">
+  <div class="bz-logo">
+    <a ui-sref="app.dashboard"></a>
+    <img src="../images/login/logo_bizmerk_footer-01.png" alt="">
+    <div class="menu-toggler sidebar-toggler">
+    </div>
+  </div>
+  <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"> </a>
+  <div class="bz-top">
+    <div class="bz-top-menu">
+      <ul class="nav navbar-nav pull-right bz-top-nav">
+        <li class="bz-top-search" >
+          <i class="icon-lupa search-icon-h"></i>
+          <input  placeholder="{{ 'SEARCH' | translate }}..." class="input-sm input-search form-control"
+            type="search"/>
+        </li>
+        <li class="dropdown-setting bz-top-setting" ui-sref-active="active">
+          <a class="dropdown-toggle" ui-sref="app.profile" data-close-others="true">
+            <i class="bz-icon icon-configuracion"></i>
+          </a>
+        </li>
+        <li class="dropdown dropdown-extended dropdown-notification bz-top-notification" >
+          <a class="dropdown-toggle" dropdown-menu-hover data-toggle="dropdown" data-close-others="true">
+            <i class="bz-icon icon-notificaciones"></i>
+            <span class="badge badge-default bz-badge"> 07 </span>
+          </a>
+          <ul class="dropdown-menu">
+            <li class="external">
+              <h3>
+                <span class="bold">7 pending</span> notifications</h3>
+            </li>
+            <li>
+              <p>Notifications</p>
+            </li>
+          </ul>
+        </li>
+
+        <li class="dropdown dropdown-user bz-top-user">
+          <a class="dropdown-toggle" dropdown-menu-hover data-toggle="dropdown" data-close-others="true">
+            <div class="bz-icon icon-avatar userimage"></div>
+            <div class="username">
+            <span class="username-hide-on-mobile"> {{ profile.username }} </span>
+            </div>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-default">
+            <li>
+              <a href="#/profile/dashboard">
+                <i class=""></i> My Profile </a>
+            </li>
+            <li class="divider"> </li>
+            <li>
+              <a ng-click="logout()" >
+                <i class=""></i> Log Out </a>
+            </li>
+          </ul>
+        </li>
+        <!-- END USER LOGIN DROPDOWN -->
+      </ul>
+    </div>
+    <!-- END TOP NAVIGATION MENU -->
+  </div>
+  <!-- END PAGE TOP -->
+</div>
+<!-- END HEADER INNER -->

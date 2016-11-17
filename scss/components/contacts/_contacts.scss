@@ -1,0 +1,59 @@
+.input-1-col {
+	@include j-column(1/1);
+	@include breakpoint(mobileonly) {
+        @include j-column(1/1);
+    }
+}
+
+.cont-2-input { 
+	@include j-column(1/1);
+} 
+.cont-1-input {
+	@include j-column(1/2);
+	@include breakpoint(mobileonly) {
+        @include j-column(1/1);
+    }	
+}
+.cont-2-input, .cont-1-input {
+	position: relative;
+	.input-2-col {
+		@include j-column(1/2);
+	}  
+	.input-1-col {
+		@include j-column(1/1);
+	}  
+	.input-2-col, .input-1-col {
+		position: relative;
+		display: inline-block;
+		@include breakpoint(mobileonly) {
+        	@include j-column(1/1);
+    	}
+		.select-contact {
+			width: 100%;
+		}
+	}
+}
+.bz-panel-w {
+    background-color: white;
+    .bt-position-contact {
+		margin-top: 15px;
+		float: right;
+		@include breakpoint(mobileonly) {
+       		@include j-column(1/1);
+    	}	
+	}
+}
+.icon-arrow-pos {
+	position: absolute;
+	right: 10px;
+	top: 35%;
+	font-size: 1.4em;
+}
+ 
+.email-white {
+	background-color: white !important;
+	padding: 5px !important;
+}
+.height-inp {
+	height: 30px;
+}

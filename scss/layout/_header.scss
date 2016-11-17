@@ -1,0 +1,21 @@
+.bz-header {
+  @include j-center(2500px);
+  @include j-column(1/1);
+  height: 80px;
+  .bz-top {
+    @include j-column(1/1);
+    .bz-top-menu {
+      display: flex;
+      justify-content: flex-end;
+      .bz-top-nav {
+        height: 100%;
+        .bz-top-notification,
+        .bz-top-setting,
+        .bz-top-user {
+          margin-right: 0;
+          float: left;
+        }
+      }
+    }
+  }
+}

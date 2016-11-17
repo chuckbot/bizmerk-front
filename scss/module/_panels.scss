@@ -1,0 +1,81 @@
+h1 {
+  color: $dark-orange;
+  font-weight: $xthin;
+  font-size: 3em;
+  @include j-center(90%);
+  margin-bottom: 60px;
+}
+.bz-panel , .bz-panel-w{
+  @include j-center(97%, 10px);
+  padding-top: 10px;
+  padding-bottom: 30px;
+  background-color: $light-gray;
+  overflow: hidden;
+  text-align: center;
+  .bz-panel-title {
+    font-size: 21px;
+    font-weight: $medium;
+    margin-bottom:20px;
+    text-transform: uppercase;
+    color: $normal-blue;
+  }
+  .bz-panel-text {
+    font-size: 1.5em;
+    color: $text;
+    font-weight: $xthin;
+    margin-bottom: 20px;
+  }
+  .bt {
+    font-size: 1.5em;
+  }
+  .form-content {
+    margin: 0 0 20px;
+    .form-sections {
+      .form-sections-label {
+        font-size: 18px;
+        color: $dark-gray;
+        font-weight: bold;
+        text-align: center;
+        vertical-align: middle;
+        padding: 5px;
+      }
+      .form-sections-inputs {
+        background-color: $white;
+        border:1px solid $border-lgray;
+        padding: 0 16px;
+      }
+      //@include breakpoint(mobileonly) {
+      //  @include j-column(1/1);
+      //}
+      //@include breakpoint(phablet) {
+      //  @include j-column(1/1);
+      //}
+      //@include breakpoint(tablet) {
+      //  @include j-column(1/2);
+      //}
+    }
+  }
+  .sections {
+    @include breakpoint(mobileonly) {
+        @include j-column(1/1);
+      }
+      @include breakpoint(phablet) {
+        @include j-column(1/1);
+      }
+      @include breakpoint(tablet) {
+        @include j-column(1/2);
+      }
+      @include breakpoint(laptop) {
+        @include j-column(1/3);
+      }
+  }
+}
+
+.bz-announcement {
+  border-left: 10px solid $normal-blue;
+  text-align: left;
+  .bz-panel-title {
+    font-size: 18px;
+    font-weight: bold;
+  }
+}

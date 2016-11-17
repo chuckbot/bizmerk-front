@@ -1,0 +1,62 @@
+@import url($font-url);
+
+html, body {
+  font-family: 'Roboto', Helvetica, SansSerif;
+  margin: 0;
+  height: 100%;
+  min-height: 100% !important;
+}
+
+div {
+  display: block;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a ,
+a:hover,
+a:focus {
+  text-align: center;
+  text-decoration: none;
+  color: $text;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="checkbox"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="url"],
+select,
+textarea{
+  background-color: $input-gray;
+  border: 1px solid $input-gray;
+  margin: 8px 0;
+  border-radius: 4px;
+  padding: 8px;
+  &:disabled {
+    background-color: $border-dgray;
+  }
+  &:focus {
+    border: 2px solid $border-dgray;
+    outline: -webkit-focus-ring-color auto 0px;
+  }
+}
+input[type="password"] {
+  color: $normal-blue;
+}
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 4px;
+  padding: 4px;
+  background-color: $input-gray;
+  border: 1px solid $input-gray;
+  outline: -webkit-focus-ring-color auto 0px;
+
+}

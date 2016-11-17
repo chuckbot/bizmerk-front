@@ -1,0 +1,186 @@
+.signup-bg {
+  background-image: url('../images/login/backgrounds-01.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.signup {
+  height: 100%;
+  margin: 0;
+  padding-top: 5%;
+  .signup-form {
+    background-color: $white;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.2s ease-in-out;
+    @include j-center(1180px, 100px);
+    @include breakpoint(mobileonly) {
+      @include j-center(400px, 10px);
+    }
+    &:hover {
+      box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    }
+    padding-top: 30px;
+    padding-bottom: 50px;
+    .signup-form--logo {
+      @include j-center(280px, 40px);
+      text-align: center;
+      img {
+        width: 100%;
+      }
+    }
+    .signup-form--inputs {
+      .intl-tel-input {
+        display: block;
+        margin-top: 8px !important;
+      }
+      @include breakpoint(laptop) {
+        @include j-center(890px, 40px);
+      }
+      @include breakpoint(desktop) {
+        @include j-center(890px, 40px);
+      }
+      .signup-form--inputs__blue {
+        width: 100%;
+        background-color: $normal-blue;
+        color: $white;
+        font-size: 24px;
+        padding-left: 50px;
+        font-weight: $thin;
+        border: 1px solid $normal-blue;
+        @include breakpoint(mobileonly) {
+          font-size: 17px;
+        }
+        &::-webkit-input-placeholder {
+          color: $white;
+        }
+        &:focus {
+          border: 1px solid $normal-blue;
+        }
+      }
+      .twice {
+        @include j-center(780px, 0);
+        @include j-cf();
+        .input-container {
+          position: relative;
+          @include breakpoint(mobileonly) {
+            @include j-column(1/1);
+          }
+          @include breakpoint(phablet) {
+            @include j-column(1/1);
+          }
+          @include breakpoint(tablet) {
+            @include j-column(1/1);
+          }
+          @include breakpoint(laptop) {
+            @include j-column(1/2);
+          }
+          @include breakpoint(desktop) {
+            @include j-column(1/2);
+          }
+        }
+      }
+    }
+    .signup-form--submit {
+      @include j-center(680px, 40px);
+      margin-top: 3%;
+      @include j-cf();
+      .bt-primary {
+        font-size: 24px;
+        font-weight: $normal;
+        @include j-center(475px, 40px);
+        width: 100%;
+          padding: 0px;
+          padding-top: 10px;
+          padding-bottom: 10px;
+        @include breakpoint(mobileonly) {
+          font-size: 17px;
+        }
+        @include breakpoint(phablet) {
+          font-size: 20px;
+        }
+      }
+    }
+    .signup-form--info {
+      @include j-center(680px, 40px);
+      padding: 20px;
+      text-align: center;
+      @include breakpoint(mobileonly) {
+        padding: 0px;
+      }
+        .signup--info {
+        font-size: 15px;
+        color: $border-dgray;
+        font-weight: $thin;
+      }
+    }
+  }
+  .signup-footer {
+    margin-top: 4%;
+    position: absolute;
+    right: 0;
+    left: 0;
+    background-color: transparent;
+    padding: 20px;
+    @include breakpoint(mobileonly) {
+      padding: 0px;
+      padding-left: 0px;
+      padding-rigth: 0px;
+    }
+    @include breakpoint(desktop) {
+      bottom: 0;
+    }
+    .signup-footer--content {
+      @include j-center(420px, 60px);
+      height: 30px;
+      .signup-footer--link {
+        @include j-column(1/3);
+        color: $normal-blue;
+        font-size: 20px;
+        font-weight: $thin;
+        height: 20px;
+        margin-right: 0;
+        padding: 0 8px;
+        text-align: center;
+        @include breakpoint(mobileonly) {
+          margin-top: 6px;
+          text-align: center;
+          font-size: 12px;
+        }
+        &:first-child {
+          text-align: center;
+        }
+        img {
+          width: 120%;
+          margin-left: -30px;
+        }
+        &:last-child {
+          text-align: left;
+        }
+      }
+      .divider {
+        display: inline-block;
+        float: left;
+        width: 0;
+        margin-top: 5px;
+        height: 20px;
+        border-right: 1px solid $normal-blue;
+      }
+    }
+  }
+}
+.confirmation{
+  position: relative;
+  font-size: 30px;
+  .icon-activo {
+      position: absolute;
+      top: 30%;
+      color: #81cb76;
+      right: -30px;
+  }
+  .icon-inactivo {
+    position: absolute;
+    top: 30%;
+    color: #ff8789;
+    right: -30px;
+  }
+}

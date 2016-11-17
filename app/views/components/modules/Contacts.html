@@ -1,0 +1,81 @@
+<a class="back-to-list" ui-sref="app.contacts" class=""><i class="bz-icon arrow-icon icon-izquierda">
+</i>{{"BACK_TO_LIST" | translate}}</a>
+<br>
+<br>
+<br>
+
+<h1>{{ 'NEW_CONTACT' | translate }}</h1>
+
+<form method="post" name="ContactForm" class="" ng-submit="addNewContact(Contact)">
+	<div class="form-container bz-panel">
+		<div class="cont-2-input">
+			<input type="text" placeholder="{{ 'FIRST_NAME' | translate}} *" class="input-2-col" name="firstName" ng-model="Contact.firstName" id="LettersOnly" only-letters-input title="{{ 'REQUIRED_NAME' | translate}}" required>
+
+			<input type="text" placeholder="{{ 'LAST_NAME' | translate}}" class="input-2-col" name="lastName" ng-model="Contact.lastName" id="LettersOnly" only-letters-input title="{{ 'LAST_NAME' | translate}}">
+		</div>
+		<div class="cont-2-input">
+			<input type="email" placeholder="{{ 'EMAIL' | translate}} *" class="input-2-col email-white" name="email"
+             ng-model="Contact.email" required>
+			<div class="cont-1-input">
+        <select class="input-1-col" name="{{ 'COUNTRY' | translate}}" ng-model="Contact.country"
+                pvp-country-picker>
+          <option value="">{{ 'COUNTRY' | translate}}</option>
+        </select>
+				<i class="icon-abajo icon-arrow-pos" ></i>
+			</div>
+		</div>
+			<input type="text" placeholder="{{ 'ADDRESS' | translate}}" class="input-1-col" ng-model="Contact.address">
+		<div class="cont-2-input">
+			<input type="text" maxlength="18" id="phone" only-numbers-input placeholder="{{ 'PHONE' | translate}}"
+             class="input-2-col"
+             ng-model="Contact.phone">
+
+			<input type="text" placeholder="{{ 'POSTAL_CODE' | translate}}" only-numbers-input class="input-2-col"
+             ng-model="Contact.postalCode">
+		</div>
+		<div class="cont-2-input">
+			<input type="text" placeholder="{{ 'COMPANY_NAME' | translate}} " class="input-2-col" ng-model="Contact.companyName">
+			<input type="text" placeholder="{{ 'WEB_SITE' | translate}}" class="white input-2-col" ng-model="Contact.webSite">
+		</div>
+	</div>
+	<br>
+	<div class="bz-panel-w">
+		<div class="cont-2-input">
+
+			<!--<div class="input-2-col">
+				<select name="" id="" class="select-contact" ng-model="Contact.published"><option value="">{{ 'PUBLISHED' | translate}} </option></select>
+				<i class="icon-abajo icon-arrow-pos" ></i>
+			</div>
+			 <div class="input-2-col">
+				<select name="" id="" class="select-contact" ng-model="Contact.priority"><option value="">{{ 'PRIORITY' | translate}} </option></select>
+				<i class="icon-abajo icon-arrow-pos" ></i>
+			</div>
+		</div>
+		<div class="cont-2-input"> -->
+			<!-- <div class="input-2-col">
+				<select name="" id="" class="select-contact" ng-model="Contact.status"><option value="">{{ 'STATUS' | translate}} </option></select>
+				<i class="icon-abajo icon-arrow-pos" ></i>
+			</div> -->
+			<div class="input-2-col">
+				<select name="" id="" class="select-contact" ng-model="Contact.campaing_id"><option value="">{{ 'CAMPAIGN' |
+          translate}} </option>
+          <option ng-repeat="camp in campaigns" value="{{camp.id}}">{{ camp.name }} </option>
+        </select>
+				<i class="icon-abajo icon-arrow-pos" ></i>
+			</div>
+		</div>
+<!--		<div class="cont-2-input">
+			<div class="input-2-col">
+				<select name="" id="" class="select-contact" ng-model="Contact.addList"><option value="">{{ 'ADD_LIST' | translate}}</option></select>
+				<i class="icon-abajo icon-arrow-pos" ></i>
+			</div>
+
+			<div class="input-2-col">
+				<select name="" id="" class="select-contact" ng-model="Contact.tags"><option value="">{{ 'TAGS' | translate}}</option></select>
+				<i class="icon-abajo icon-arrow-pos" ></i>
+			</div>
+		</div>-->
+
+		<button class="bt bt-primary bt-position-contact"  ng-disabled="!(ContactForm.firstName.$valid && ContactForm.email.$valid)" >{{ 'SAVE_CONTACT' | translate}}</button>
+	</div>
+</form>

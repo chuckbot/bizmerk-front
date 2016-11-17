@@ -1,0 +1,31 @@
+.bz-sidemenu-list {
+  .bz-list-item {
+    background-color: $dark-blue;
+    .bz-item-link {
+      text-align: left;
+      color: $normal-blue;
+      &:hover {
+        color: $white;
+      }
+      .bz-icon {
+        text-align: center;
+        font-size: 2.0em;
+      }
+      .bz-title {
+        font-size: 1.3em;
+        font-weight: $xthin;
+        margin: 5px 0 0 0;
+      }
+    }
+    .active {
+      background-color: $white;
+      color: $dark-orange;
+        &:hover {
+          color: $dark-orange;
+        }
+      .bz-title {
+        font-weight: $bold !important;
+      }
+      }
+    }
+  } 

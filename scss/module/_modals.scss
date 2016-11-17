@@ -1,0 +1,99 @@
+.modal-content {
+  .bz-modal-header {
+    background-color: $dark-blue;
+    border-bottom: 3px solid $dark-orange;
+    h3 {
+      color: $white;
+    }
+  }
+  .bz-modal-body {
+    h3 {
+      text-align: center;
+      color: $light-blue;
+    }
+    h4 {
+      padding: 10%;
+      font-size: 22px;
+    }
+    .input-container {
+      width: 90% !important;
+      margin-left: 5% !important;
+      display: inline-block;
+      position: relative;
+      max-width: 100%;
+      .left ,.right {
+        height:9px;
+        border-left: 2px solid $input-gray;
+        position:absolute;
+        top:29px;
+      }
+
+      .right {
+        right: 0;
+      }
+      .bz-icon {
+        position: absolute;
+        right: 6px;
+        top: 18px;
+        font-size: 1.2em;
+        color: $input-gray;
+      }
+      .bz-icon.icon-abajo {
+        top: 10px;
+      }
+
+      .input {
+        display:block;
+        background-color: transparent;
+        height:30px;
+        font-size:100%;
+        width: 100%;
+        border: 2px solid  $input-gray;
+        border-width: 0 0 2px 0;
+        border-radius: 0;
+        padding:0px 10px;
+        outline:none;
+      }
+      &:hover {
+        .input, .right, .left, .bz-icon{
+          border-color: $light-blue;
+          color: $light-blue;
+        }
+      }
+      &:focus {
+        .input, .right, .left, .bz-icon {
+          border-color: $light-blue;
+          color: $light-blue;
+        }
+      }
+    }
+    .select {
+      width: 20%;
+      .left, .right {
+        top: 21px;
+      }
+      .input {
+        width:100%;
+      }
+    }
+    @include breakpoint(mobileonly) {
+      .input-container {
+        width:100%;
+      }
+      .select {
+        width: 60%;
+      }
+    }
+    @include breakpoint(phablet) {
+      .input-container {
+        width:60%;
+      }
+      .select {
+        width: 26%;
+      }
+    }
+  }
+  .bz-modal-footer {
+    border-top: 0;
+  }
+}

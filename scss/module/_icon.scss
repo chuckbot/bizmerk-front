@@ -1,0 +1,58 @@
+// * Login
+.icon-input {
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 20px;
+  left: 12px;
+  width: 30px;
+  height: 30px;
+}
+.icon-input.icon-avatar {
+  font-size: 30px ;
+}
+.i-company {
+  background-image: url("../images/login/icons/compania-01.png");
+}
+.i-password {
+  background-image: url("../images/login/icons/contrasena-01.png");
+}
+.i-email {
+  background-image: url("../images/login/icons/correo-01.png");
+}
+.i-user {
+  background-image: url("../images/login/icons/nombre-01.png");
+}
+.i-phone {
+  background-image: url("../images/login/icons/telefono-01.png");
+}
+.bz-icon-s {
+  font-size: 1em;
+}
+.bz-icon-sm {
+  font-size: 1.3em;
+}
+.bz-icon-m {
+  font-size: 2.1em;
+}
+.bz-icon-l {
+  font-size: 3.1em;
+}
+.icon-color-primary {
+  color: $light-blue;
+}
+.icon-color-secondary {
+  color: $dark-blue;
+}
+.icon-color-success {
+  color: $dark-green;
+}
+.icon-color-error {
+  color: $error;
+}
+.icon-color-warning {
+  color: $warning;
+}
+.icon-color-draft {
+  color: $light-blue;
+}

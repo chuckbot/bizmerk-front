@@ -1,0 +1,117 @@
+.succes-msg{
+  @include j-center(100%, 30px);
+  text-align: center;
+  padding: 15px;
+  left: 0;
+  margin-left: 0;
+  color: white;
+  transition: 300ms;
+  margin-bottom: 30px;
+  .alert-msg{
+    font-size: 17px;
+    font-weight: $bold;
+    padding-left: 15px;
+    display: none;
+  }
+}
+.note-msg {
+  background-color: $light-gray;
+  border-left: 10px solid $normal-blue;
+  @include j-center(95%, 30px);
+  padding-top: 5px;
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+  color: $dark-gray;
+  font-size: 17px;
+  .alert-msg {
+    position: absolute;
+    font-size: 16px;
+    margin-top: 3px;
+    color: $normal-blue;
+  }
+  .bt-quitar {
+    font-weight: $bold;
+    color: $light-blue;
+    position: absolute;
+    right: 60px;
+    top: 15%;
+  }
+}
+
+#loading-bar .bar  {
+  background: $dark-orange;
+  height: 5px;
+}
+#loading-bar .peg {
+  -moz-box-shadow: $dark-orange 1px 0 6px 1px;
+  -ms-box-shadow: $dark-orange 1px 0 6px 1px;
+  -webkit-box-shadow: $dark-orange 1px 0 6px 1px;
+  box-shadow: $dark-orange 1px 0 6px 1px;
+  height: 5px;
+}
+
+#loading-bar-spinner .spinner-icon {
+  border-top-color:  $dark-orange;
+  border-left-color: $dark-orange;
+  top: 20px;
+  left: 20px;
+}
+
+  .message-container {
+    @include j-center(100%);
+    z-index: 5;
+    position: absolute;
+    margin-left: 0;
+    margin-right: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    .help-block.alert-danger,
+    .help-block.alert-danger.ng-active{
+      background-color: $dark-orange;
+      display: block;
+      -webkit-transition: 600ms;
+      -moz-transition: 600ms;
+      -ms-transition: 600ms;
+      -o-transition: 600ms;
+      transition: 600ms;
+    p {
+        color: white;
+        font-weight: bold;
+        text-align: center;
+        padding: 15px 39px;
+      }
+    }
+    .help-block.alert-danger.ng-hide {
+      background-color: transparent;
+      display: none;
+    }
+    .help-block.alert-danger.ng-inactive {
+      background-color: transparent;
+      display: none;
+    }
+  }
+button[disabled],
+button[disabled]:hover,
+button[disabled]:focus {
+  opacity: .3;
+}
+
+#toast-container {
+  position: relative;
+  width: 100%;
+  top: 0;
+  right: 0;
+  z-index: 1;
+}
+#toast-container > .toast-success {
+
+}
+#toast-container > div {
+  width: 100%;
+  margin: 0 0 15px;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}

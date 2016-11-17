@@ -1,0 +1,187 @@
+.bz-header {
+  background-color: $dark-blue;
+  height: 70px;
+  .bz-logo {
+    display: flex;
+    justify-content: flex-start;
+    float: left;
+    height: 100%;
+    padding: 10px 30px 10px 20px;
+    @include breakpoint(mobileonly) {
+      margin-top: 10px;
+      width: 180px;
+      margin-left: 80px;
+      vertical-align: middle;
+    }
+    @include breakpoint(phablet) {
+      margin-top: 10px;
+      width: 180px;
+      margin-left: 80px;
+      vertical-align: middle;
+    }
+    @include breakpoint(tablet) {
+      margin-top: 0px;
+      width: 200px;
+      margin-left: 0px;
+      vertical-align: middle;
+    }
+    img {
+      width:  100%;
+      display: block;
+    }
+  }
+  .bz-top {
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    margin-top: 0px;
+    .bz-top-menu {
+      .bz-top-nav {
+        margin-top: 0px;
+        .bz-top-search {
+          height: 70px;
+          @include breakpoint(mobileonly) {
+            display: none;
+          }
+          @include breakpoint(phablet) {
+            display: none;
+          }
+          @include breakpoint(tablet) {
+            display: inline-block;
+            width: 150px;
+            float: left;
+          }
+          @include breakpoint(laptop) {
+            display: block;
+            width: 230px;
+
+          }
+          .input-search {
+            @include breakpoint(mobileonly) {
+              display: none;
+            }
+            @include breakpoint(phablet) {
+              display: none;
+            }
+            @include breakpoint(tablet) {
+              display: block;
+              width: 150px;
+            }
+            @include breakpoint(laptop) {
+              display: block;
+              width: 220px;
+            }
+            margin-top: 15px;
+            text-indent: 25px;
+            height: 40px;
+            font-size: 16px;
+            margin-left: 5px;
+            margin-right: 5px;
+            border: 2px solid $dark-blue-search;
+            background-color: $dark-blue-search;
+            color: white;
+          }
+          .search-icon-h {
+            position: absolute;
+            font-size: 20px;
+            margin-top: 25px;
+            margin-left: 15px;
+            color: $dark-orange;
+          }
+
+        }
+
+
+
+        .bz-top-notification,
+        .bz-top-setting{
+          @include breakpoint(mobileonly) {
+            display: none;
+          }
+          @include breakpoint(phablet) {
+            display: none;
+          }
+          @include breakpoint(tablet) {
+            display: block;
+          }
+        }
+        .bz-top-user{
+          @include breakpoint(mobileonly) {
+            width: 100px;
+          }
+          @include breakpoint(phablet) {
+            width: 100px;
+          }
+          @include breakpoint(tablet) {
+            width: 250px;
+          }
+        }
+        .bz-top-notification,
+        .bz-top-setting,
+        .bz-top-user {
+          font-size: .9em;
+          cursor: pointer;
+          height: 70px;
+          .dropdown-toggle {
+            height: 100%;
+            &:hover,
+            &:focus {
+              color: $dark-orange;
+              .bz-icon {
+                color: $dark-orange;
+              }
+            }
+            .bz-icon {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              text-align: center;
+              font-size: 3em;
+              color: $normal-blue;
+            }
+            .bz-badge {
+              position: absolute;
+              background-color: $dark-orange;
+              color: $white;
+              top: 17px;
+              right: 9px;
+              font-weight: 300;
+              padding: 3px 6px;
+            }
+          }
+        }
+        .bz-top-user {
+            .userimage {
+              display: inline-block !important;
+            }
+            .username {
+              font-size: 1.3em;
+              display: inline-block;
+              vertical-align: -webkit-baseline-middle;
+              height:100%;
+              color: $white;
+              font-weight: $thin;
+              margin-left: 10px;
+              @include breakpoint(mobileonly) {
+                display: none;
+              }
+              @include breakpoint(phablet) {
+                display: none;
+              }
+              @include breakpoint(tablet) {
+                display: inline-block;
+              }
+            }
+          }
+        .open {
+          background-color: $dark-blue;
+          a{
+            .bz-icon {
+              color: $dark-orange;
+            }
+          }
+        }
+      }
+    }
+  }
+}

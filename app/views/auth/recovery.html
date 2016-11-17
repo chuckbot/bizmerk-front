@@ -1,0 +1,40 @@
+<div class="login">
+  <div class="message-container">
+  <div class="help-block alert-danger" ng-messages="recoveryForm.email.$error" ng-if="recoveryForm.email.$touched">
+    <p ng-message="required">{{ 'EMAIL_VALIDATION_REQUIRED' | translate }}</p>
+    <p ng-message="email">{{ 'EMAIL_VALIDATION_CORRECT' | translate }}</p>
+  </div>
+  <div class="help-block alert-danger" ng-show="recoveryError">
+    <p>{{ 'invalid_recovery' | translate }}</p>
+  </div>
+  </div>
+  <form class="login-form" name="recoveryForm">
+    <div class="login-form--forgot">
+      <p class="bg-light forgot-text forgot-recovery">¿Olvidaste tu contraseña?</p>
+    </div>
+    <div class="login-form--inputs">
+      <div class="input-container">
+        <span class="icon-input i-email"></span>
+        <input class="login-form--inputs__blue" autocomplete="off" type="email" name="email" ng-model="User.email" placeholder="Correo Electronico" required /><br>
+      </div>
+    </div>
+    <div class="login-form--submit">
+      <button href="" class="bt bt-primary" ng-click="RecoveryUser(User.email)"> Recuperar contraseña </button>
+    </div>
+    <br>
+    <div class="login-form--forgot">
+      <a ui-sref="auth.login" class="signup--info">{{ 'BACK_LOGIN' | translate }}</a>
+    </div>
+    <br>
+    <br>
+  </form>
+  <div class="login-footer">
+    <div class="login-footer--content">
+      <a href="" class="login-footer--link"><img src="../images/login/logo_bizmerk_footer-01.png" alt=""></a>
+      <span class="divider"></span>
+      <a href="" class="login-footer--link">Contacto</a>
+      <span class="divider"></span>
+      <a href="" class="login-footer--link">Ayuda</a>
+    </div>
+  </div>
+</div>

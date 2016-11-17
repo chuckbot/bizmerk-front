@@ -1,0 +1,139 @@
+.back-to-list {
+	color: $subtitles;
+	font-size: 18px;
+	font-size: $bold;
+}
+.container-data {
+	text-align: justify;
+	padding: 5px;
+	padding-left: 25px;
+	.text-orange {
+		color: $dark-orange; 
+	}
+	.text-blue {
+		color: $normal-blue; 
+	}
+	.text-blue-d {
+		color: $dark-blue; 
+	}
+	.text-grey {
+		color: grey; 
+	}
+	.contact-icon {
+		font-size: 20px;
+	}
+	.inline-content {
+		display: inline-block;
+	}
+	.text-l {
+		font-size: 33px;
+	}
+	.text-s {
+		font-size: 20px;
+		text-align: justify;
+	}
+	a{
+		color:$normal-blue;
+		margin-top:0;
+		margin-right: 10px;
+	}
+
+
+}
+.container-data-1 {
+	@include breakpoint(mobileonly) {
+      	@include j-column(1/1);
+    }
+    @include breakpoint(phablet) {
+      	@include j-column(1/1);
+    }
+    @include breakpoint(tablet) {
+      	@include j-column(1/3);
+    }
+    @include breakpoint(laptop) {
+		@include j-column(1/3);
+    }
+}
+.container-data-2 {
+	@include breakpoint(mobileonly) {
+      	@include j-column(1/1);
+    }
+    @include breakpoint(phablet) {
+      	@include j-column(1/1);
+    }
+    @include breakpoint(tablet) {
+      	@include j-column(1.8/3);
+    }
+    @include breakpoint(laptop) {
+		@include j-column(1/3);
+    }
+}
+.container-data-3 {
+	@include breakpoint(mobileonly) {
+      	@include j-column(1/1);
+      	text-align: center;
+    }
+    @include breakpoint(phablet) {
+      	@include j-column(1/1);
+    }
+    @include breakpoint(tablet) {
+      	@include j-column(1/1);
+      	right: 0px;
+    }
+    @include breakpoint(laptop) {
+		@include j-column(.8/3);
+    }
+}
+.activity-status {
+	@include breakpoint(mobileonly) {
+      	@include j-column(1/1);
+      	text-align: center;
+    }
+    @include breakpoint(phablet) {
+      	@include j-column(1/1);
+      	text-align: center;
+    }
+    @include breakpoint(tablet) {
+      	@include j-column(1/1);
+      	right: 0px;
+      	text-align: center;
+    }
+    @include breakpoint(laptop) {
+		@include j-column(1/3);
+    }
+}
+
+
+.circle {
+	width: 15px;
+	height: 15px;
+	-moz-border-radius: 8px;
+	-webkid-border-radius: 8px;
+	border-radius: 8px;
+	display: inline-block;
+	margin-left: 10px;
+}
+.orange {
+	background-color: $dark-orange;
+}
+.dark-blue {
+	background-color: $dark-blue;
+}
+.cyan {
+	background-color: cyan;
+}
+.blue {
+	background-color: blue;
+}
+.light-green {
+	background-color: $light-green;
+}
+.dark-green {
+	background-color: $dark-green;
+}
+.white {
+	background-color: white !important;
+}
+.activities-body {
+	border-left: 5px solid grey;
+}

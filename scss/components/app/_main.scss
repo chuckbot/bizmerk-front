@@ -1,0 +1,22 @@
+ .bz-app {
+  .bz-container {
+    background-color: $dark-blue;
+    .bz-content {
+     transition-duration: .3s;
+     background-color: $white;
+      @include breakpoint(mobileonly) {
+        margin-left: 0px;
+      }
+      @include breakpoint(phablet) {
+        margin-left: 0px;
+      }
+      @include breakpoint(tablet) {
+        margin-left: 70px;
+      } 
+    }
+    .bz-content-show {
+      transition-duration: .3s;
+      margin-left: 235px;
+    }
+  }
+} 

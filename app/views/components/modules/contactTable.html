@@ -1,0 +1,171 @@
+<div class="filters">
+    <div class="filter-all-inContact center">
+    <a  class="center" ng-click="allSearch()"  href="">
+      {{ "ALL" | translate }}({{ totalContact }})
+    </a>
+  </div>
+
+  <div class="filter-date">
+    <div class="input-group date-field">
+      <div  ng-click="open1()">
+        <input type="text" placeholder="Desde"  uib-datepicker-popup="yyyy.MMM.dd" datepicker-options="options" is-open="popup1.opened" datepicker-options="dateOptions" ng-model="Query.from"
+               class="form-control date-search "/>
+        <i class="icon-calendario date-icon"></i>
+        <i class="icon-abajo date-arrow" ></i>
+      </div>
+    </div>
+    <div class="input-group date-field">
+      <div  ng-click="open2()">
+        <input type="text" placeholder="Hasta" uib-datepicker-popup="yyyy.MMM.dd" is-open="popup2.opened" datepicker-options="dateOptions"                 ng-model="Query.to" class="form-control date-search"/>
+        <i class="icon-calendario date-icon"></i>
+        <i class="icon-abajo date-arrow" ></i>
+      </div>
+    </div>
+  </div>
+
+   <div class="filter-search center">
+
+    <i class="icon-lupa search-icon"></i>
+    <input  placeholder="{{ 'NAME' | translate }}" ng-model="Query.name" class="input-sm input-search form-control"
+            type="search"/>
+     <button class="bt bt-secondary button-search" ng-click="setQuery(Query)">{{ 'SEARCH' | translate }}</button>
+  </div>
+
+  <div class="filter-addContact center">
+     <button class="bt bt-primary" ui-sref="app.newContacts">{{ "NEW_CONTACT" | translate }}</button>
+  </div>
+</div>
+
+<br>
+<br>
+<br>
+
+
+<div class="container-table">
+	<table st-safe-src="contacts" st-table="displays" class="table table-striped container-table">
+	  <thead>
+		  <tr class="head-table">
+		  	<th st-sort="" class="center field-checkbox"><input type="checkbox"></th>
+		    <th st-sort="" class="field-contact-name">
+		    	<div class="divider">
+		        	{{ "NAME_CONTACT" | translate }}
+		      	</div>
+		    </th>
+
+		    <th st-sort="" class="center field-email">
+		    	<div class="divider">
+		    		{{ "EMAIL" | translate }}
+				</div>
+		    </th>
+		    <th st-sort="" class="center field-page-views">
+		    	<div class="divider">
+            {{ 'COUNTRY' | translate}}
+		    	</div>
+		    </th>
+
+
+		    <th class="center field-date" st-sort="created_at" >
+		      <div class="divider">
+		        {{ "CREATION_DATE" | translate }}
+		      </div>
+		    </th>
+
+		  </tr>
+	  </thead>
+
+
+
+	  <tbody>
+	  <tr ng-repeat="item in displays"   class="table-content">
+	    <td class="center"><input type="checkbox"></td>
+	    <td>{{ item.firstName}} {{item.lastName || ""}}</td>
+	    <td class="center">
+	    	<span class="default-info-table">
+	    		{{ item.email }}
+	    	</span>
+			<a href="" ui-sref="app.contactDetails({idContact:item.id})"><span class="option-table"><i class="bz-icon-s icon-ver"></i> {{ 'SEE' | translate }}</span></a>
+	    </td>
+	    <td class="center">
+	    	<span class="default-info-table">
+	    		{{ item.country }}
+	    	</span>
+        <a href="" ui-sref="app.editContact({idContact:item.id})">
+	    	  <span class="option-table"><i class="bz-icon-s icon-editar"></i> {{ 'EDIT' | translate }}</span></a>
+	    </td>
+	    <td class="center">
+	    	<span class="default-info-table">
+	    		{{item.created_at | date:'MM/dd/yyyy'}}
+	    	</span>
+	    	<span class="option-table" ng-click="delete(item)"><i class="bz-icon-s icon-inactivo"></i> {{ 'DELETE' | translate }}</span>
+	    </td>
+
+	  </tr>
+
+	  </tbody>
+	</table>
+</div>
+<div class="pagination">
+      <ul>
+        <li class="page" ng-class="{disabled: currentPage == 0}">
+          <a href ng-click="prevPage()">«</a>
+        </li>
+
+        <li class="page" ng-repeat="n in range(displayedPages, currentPage, currentPage + displayedPages) "
+            ng-class="{active: n == currentPage}"
+            ng-click="setPage(n+1)">
+          <a href ng-bind="n + 1">1</a>
+        </li>
+
+        <li class="page" ng-class="{disabled: (currentPage) == displayedPages - 1}">
+          <a href ng-click="nextPage()">»</a>
+        </li>
+      </ul>
+    </div>
+
+<script type="text/ng-template" id="contactmodal.html">
+  <div class="modal-header bz-modal-header">
+    <h3>Editar Campaña</h3>
+  </div>
+  <div class="modal-body bz-modal-body">
+    <div class="input-container">
+      <div class='left'></div>
+      <input name="campaign-name" class="input" ng-model="editable.name" type="text">
+      <i class="bz-icon icon-editar"></i>
+      <div class='right'></div>
+    </div>
+    <div class="input-container select">
+      <div class='left'></div>
+      <select name="" class="input" ng-model="editable.status">
+        <option ng-repeat="opt in selection" ng-selected="editable.status == opt.id"
+                ng-value="opt.id">{{ opt.label | translate }}</option>
+      </select>
+      <i class="bz-icon icon-abajo"></i>
+      <div class='right'></div>
+    </div>
+  </div>
+  <div class="modal-footer bz-modal-footer">
+    <button class="bt bt-primary" type="button" ng-click="updateCamp(editable)">{{ 'EDIT' | translate }}</button>
+    <button class="bt bt-secondary" type="button" ng-click="cancel()">{{ 'Cancel' | translate }}</button>
+  </div>
+</script>
+<script type="text/ng-template" id="delcontactmodal.html">
+  <div class="modal-header bz-modal-header">
+    <h3 class="cnt-title-md">{{ 'DELETE_CONTACT_QUESTION' | translate }}</h3>
+  </div>
+  <div class="modal-body bz-modal-body">
+
+
+    <div class="container-data">
+      <br>
+      <p class="margin-md cnt-name-md text-orange">{{ cont.firstName+' '+cont.lastName }}</p>
+      <p class="margin-md text-blue"><i class="icon-telefono contact-icon"> </i><span> {{ cont.phone }}</span></p>
+      <p class="margin-md text-blue"><i class="icon-email contact-icon"> </i> <span> {{ cont.email }}</span></p>
+    </div>
+
+
+  </div>
+  <div class="modal-footer bz-modal-footer">
+    <button class="bt bt-primary" type="button" ng-click="contactDel(cont.id)">{{ 'DELETE' | translate }}</button>
+    <button class="bt bt-secondary" type="button" ng-click="cancel()">{{ 'CANCEL' | translate }}</button>
+  </div>
+</script>

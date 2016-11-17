@@ -1,0 +1,54 @@
+// * Colors
+$white : #FFF;
+$light-gray : #f1f1f1;
+$dark-gray : #575756;
+$light-blue: #afbdc4;
+$normal-blue : #60668b;
+$dark-blue : #2d2e48;
+$dark-blue-search: #181725;
+$light-orange : #ff4d3f;
+$dark-orange : #e23f37;
+$light-green : #AED582;
+$dark-green : #7DB343;
+
+// * Layout
+$page-bg: $white;
+$components-bg: $light-gray;
+$action-bars-bg: $dark-blue;
+
+// * Buttons
+$bt-principal-default: $light-orange;
+$bt-principal-hover: $dark-orange;
+$bt-principal-active: $dark-orange;
+
+$bt-secondary-default: $normal-blue;
+$bt-secondary-hover: $dark-blue;
+$bt-secondary-active: $dark-blue;
+
+// * Fonts Colors
+$title: $light-orange;
+$subtitles: $normal-blue;
+$text: $dark-gray;
+
+// * Fonts Sizes
+$font-url: 'https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,900';
+$xthin: 200;
+$thin: 300;
+$normal: 400;
+$medium:500;
+$bold: 900;
+
+// * Forms
+$input-gray: #EDEDED;
+$disabled: $input-gray;
+$border-lgray: #DADADA;
+$border-dgray: #a0a0a0;
+
+// * Icons
+$icons-light: $light-blue;
+$icons-dark: $dark-blue;
+
+// * Notifications
+$warning: #FFAB00;
+$error: #F2635F;
+$succes: #ADDD6D;
